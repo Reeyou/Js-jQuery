@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>traffic light</title>
+   <style>
+      ul {
+         margin: 0;
+         padding: 0;
+         list-style-type: none;
+      }
+
+      ul>li {
+         float: left;
+         width: 50px;
+         height: 50px;
+         background-color: lightgray;
+         border-radius: 50%;
+         margin-right: 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+   </ul>
+   <script type="text/javascript">
+      window.onload = function () {
+         var colorArr = ["red", "green", "yellow"],
+            liNodes = document.getElementsByTagName("li"),
+            timer = null,
+            index = 1,
+            duration = 1000;//ms
+
+
+         liNodes[0].style.backgroundColor = colorArr[0];
+
+
+         clearInterval(timer);
+         timer = setInterval(function () {
+            [].forEach.call(liNodes, function (v) {
+               v.style.backgroundColor = "lightgray";
+            })
+            liNodes[index].style.backgroundColor = colorArr[index];
+            index++;
+            if (index > 2) index = 0;
+         }, duration)
+      }
+   </script>
+</body>
+
+</html>

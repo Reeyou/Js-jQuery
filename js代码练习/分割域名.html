@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+        var Socket = new WebSocket('ws://echo.websocket.org');
+
+        Socket.onopen = function() {
+           Socket.send('hello');
+        }
+        Socket.onmessage = function(e) {
+           console.log(e);
+           console.log(e.data);
+           Socket.close();
+        }
+        Socket.onclose = function() {
+           console.log('close');
+        }
+
+      // parseUrl("http://www.xiyanghui.com/product/list?id=123456&sort=discount#title");
+            // protocol: function() {
+            //    return str.split('//')[0];
+            // },
+            // host: function() {
+            //   return str.split('//')[1].split('/')[0]
+            // }
+      function parseUrl(str) {
+        return {
+          protocol: str.split('//')[0].split(':')[0],
+          host: str.split('//')[1].split('/')[0]
+        } 
+      }
+      var data = parseUrl('http://www.xiyanghui.com/product/list?id=123456&sort=discount#title');
+      console.log(data)
+
+
+   </script>
+
+</body>
+
+</html>

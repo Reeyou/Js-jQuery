@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+         font-size: 0;
+      }
+      .wrapper {
+         width: 100px;
+         height: 50px;
+         background-color: black;
+         position: relative;
+      }
+      .wrapper:after {
+         content: '';
+         display: block;
+         width: 25px;
+         height: 25px;
+         position: absolute;
+         right: -12px;
+         top: 50%;
+         margin-top: -12px;
+         border-radius: 50%;
+         background-color: #fff;
+      }
+      h5 {
+         color: #fff;
+         font-size: 12px;
+         height: 50px;
+         /* position: absolute; */
+         text-align: center;
+         /* display: inline-block; */
+         vertical-align: middle;
+         line-height: 50px;
+      }
+   </style>
+</head>
+<body>
+   <div class="wrapper">
+      <h5>button</h5>
+   </div>
+   
+</body>
+</html>

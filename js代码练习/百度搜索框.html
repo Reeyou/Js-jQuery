@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .wrapper {
+            margin: 100px;
+        }
+        
+        input {
+            /* float: left; */
+            width: 400px;
+            height: 34px;
+        }
+        /* span {
+            float: left;
+            width: 100px;
+            height: 38px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 38px;
+        } */
+        
+        ul {
+            display: none;
+            width: 400px;
+            border: 1px solid black;
+            height: 100px;
+            /* overflow: hidden; */
+        }
+        
+        li {
+            height: 25%;
+        }
+        
+        li:hover {
+            background: #ddd;
+        }
+        
+        a {
+            color: black;
+            padding: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input type="text">
+        <!-- <span>百度一下</span> -->
+        <ul></ul>
+    </div>
+
+    <script>
+        var oInput = document.getElementsByTagName('input')[0],
+            oUl = document.getElementsByTagName('ul')[0];
+        oInput.oninput = function() {
+            var value = this.value;
+
+            var oScript = document.createElement('script');
+            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=doJson';
+            document.body.appendChild(oScript);
+            document.body.removeChild(oScript);
+        }
+
+        function doJson(data) {
+            var s = data.s,
+                str = '';
+            if (s.length > 0) {
+                for (var i = 0; i < 4; i++) {
+                    str += '<li><a href=http://www.baidu.com/s?wd=' + s[i] + '>' + s[i] + '</a></li>';
+                }
+                // s.forEach(function(ele, index) {
+                //     str += '<li><a href=http://www.baidu.com/s?wd=' + ele + '>' + ele + '</a></li>';
+                // })
+                oUl.innerHTML = str;
+                oUl.style.display = 'block';
+            } else {
+                oUl.style.display = 'none';
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
