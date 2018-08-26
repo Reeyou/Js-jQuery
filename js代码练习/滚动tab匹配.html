@@ -85,7 +85,7 @@
       (function ($, win, doc) {
          var scroll_rsilder = {
             win_evet: function () {
-               $(win).bind("scroll", function () {
+               $(win).on("scroll", function () {
                   var scrollTop = $(this).scrollTop();
                   _this.ele_evet(scrollTop);
 

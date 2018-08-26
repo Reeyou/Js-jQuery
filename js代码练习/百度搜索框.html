@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
     <style>
         * {
             padding: 0px;
@@ -61,21 +62,35 @@
         <input type="text">
         <!-- <span>百度一下</span> -->
         <ul></ul>
+        <button>click</button>
     </div>
 
     <script>
         var oInput = document.getElementsByTagName('input')[0],
-            oUl = document.getElementsByTagName('ul')[0];
+            oUl = document.getElementsByTagName('ul')[0],
+            btn = document.getElementsByTagName('button')[0];
+
+        $(document).ready(function() {
+            $('button').click = function() {
+            $.ajax({
+                url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=jQuery110206626973333794348_1534471825978&_=1534471825992',
+                success: function(result) {
+                    console.log(result)
+                }
+            })
+        }
+    })
+        
         oInput.oninput = function() {
             var value = this.value;
 
             var oScript = document.createElement('script');
-            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=doJson';
+            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=getData';
             document.body.appendChild(oScript);
             document.body.removeChild(oScript);
         }
 
-        function doJson(data) {
+        function getData(data) {
             var s = data.s,
                 str = '';
             if (s.length > 0) {
@@ -93,6 +108,7 @@
 
         }
     </script>
+    
 
 </body>
 
