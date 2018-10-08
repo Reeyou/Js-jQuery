@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.wrapper #backTop span {
+  padding: 14px;
+  background: #ccc;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 14px;
+}
+.wrapper #backTop span:hover {
+  cursor: pointer;
+}
