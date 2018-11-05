@@ -22,6 +22,7 @@ define(['jquery'], function ($) {
       $('html, body').scrollTop(dest)
     }
   }
+  //默认属性值
   Scroll.DEFAULTS = {
     dest: 0,
     speed: 800
